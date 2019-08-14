@@ -38,3 +38,30 @@ console.log(SimpleFn());
 
 let fn = () => {}
 console.log(typeof fn);
+
+//闭包
+let global = 'global';
+function outer(element){
+    let outer = 'outer';
+    function inner(){
+        let a = 5;
+        console.log(a);//闭包可以访问所有在其声明内部声明的变量
+        console.log(global);//闭包可以访问全局变量
+        console.log(outer);//闭包能够访问外部函数的变量
+        console.log(element);//闭包可以访问外部函数的参数
+    }
+    inner();
+}
+outer(123);
+
+//闭包可以记住它的上下文
+var fn2 = (arg) => {
+    let outer = 'Visible';
+    let innerFn = () => {
+        console.log(outer);
+        console.log(arg);
+    }
+    return innerFn;
+}
+var closureFn = fn2(5);
+closureFn();
