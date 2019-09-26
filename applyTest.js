@@ -12,6 +12,22 @@
  * apply() 方法调用一个具有给定this值的函数，以及作为一个数组(或类似数组对象)提供参数。
  *
  */
+
+
+var foo = {
+    value : 1
+}
+
+function bar(){
+    console.log(this.value);
+}
+
+bar.call(foo);
+/**
+ * 1.call 改变了this的指向，指向到foo
+ * 2.bar函数执行了
+ */
+
 var numbers = [5, 6, 2, 3, 7];
 var max = Math.max.apply(null, numbers);
 console.log('max ',max);

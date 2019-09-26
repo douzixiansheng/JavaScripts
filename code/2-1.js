@@ -1,10 +1,9 @@
+"use strict";
 
-'use strict'
-let self = this;
-module.exports = aa;
-var aa = function(){
-    console.log(this);
-    self.xx = 1123;
-}
-aa();
-console.log(self)
+let topics = ['broadcast'];
+topics.some((topic) => {
+    console.log(topic)
+})
+
+var xxx = topics.every(t => typeof t === 'string')
+console.log(xxx);
