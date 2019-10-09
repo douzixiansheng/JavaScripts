@@ -5,6 +5,12 @@
 //Promise 和 co的原理实现  https://segmentfault.com/a/1190000010159031
 //redis 缓存与持久化  https://cloud.tencent.com/developer/article/1116327
 
+/**
+ * 基本类型：Number、Boolean、String、undefined、null
+ * 引用类型：Object、Function
+ * 基本类型的数据是存放在栈内存中的,而引用类型的数据是存放在堆内存中的
+ * 参考网址：https://www.cnblogs.com/ljuyi/p/6100071.html
+ */
 
 /**
  == 和 === 有什么区别？

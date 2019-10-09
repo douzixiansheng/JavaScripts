@@ -59,13 +59,13 @@ console.log(Array.of(3));
 console.log(Array.of(3, 4, 5));
 
 /**
- * copyWithin()
+ * copyWithin(target, start, end)
  * 会在当前数组内部将指定位置的成员复制到其他位置，然后返回当前数组
  * 这个方法会修改当前数组
  */
 var copyArr = [1, 2, 3, 4, 5];
 copyArr.copyWithin(0, 3);
-console.log(copyArr);
+console.log('copyArr ',copyArr);
 
 /**
  * find && findIndex
@@ -110,7 +110,7 @@ console.log([1, 2, 3].includes(5));
  * indexOf 内部使用严格判断(===)，会导致对NaN的误判
  * 
  */
-console.log([NaN].indexOf(NaN));
+console.log('[NaN].indexOf(NaN) ',[NaN].indexOf(NaN));
 console.log([NaN].includes(NaN));
 
 //0 号位置有值 返回true

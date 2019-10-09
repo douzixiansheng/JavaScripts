@@ -1,0 +1,52 @@
+FROM node:10.16.0-alpine
+
+# WORKDIR <工作目录路径>
+# 使用WORKDIR指令可以来指定工作目录(或者成为当前目录),以后各层的当前目录就被改为指定的目录，
+# 如该目录不存在,WORKDIR会帮你建立目录
+
+WORKDIR /app
+
+# npm 会有生命周期，某个包会有生命周期来执行一些东西，安全起见会自动降级导致没有权限执行一些操作
+# 通过--unsafe-perm 参数来解锁该限制
+# npm config set unsafe-perm (针对当前用户的)
+# npm config -g set unsafe-perm (全局的)
+
+RUN npm config set unsafe-perm true
+RUN npm install -g pm2 --production
+
+COPY framework/package* /app/framework/
+
+RUN cd /app/framework && npm install --production
+RUN mkdir /app/logs
+
+COPY framework /app/framework
+
+EXPOSE 8081
+
+ENV NAME entryServer
+
+#  与Docker使用pm2  https://github.com/keymetrics/doc-pm2/blob/master/zh/runtime/integration/docker.md
+CMD ["pm2-runtime", "entryServer/app.js"]
+
+# Dockerfile  编写网址:https://yeasy.gitbooks.io/docker_practice/content/image/dockerfile/copy.html
+
+# alpine 提供了非常好的apk软件包管理工具
+# apk add 安装packages 并自动解决依赖关系
+# --no-cache表示无缓存，--virtual=build-dependencies表示创建依赖包
+
+RUN apk --no-cache --virtual build-dependencies add \
+	python \
+	make \
+	g++
+
+
+RUN apk --no-cache add subversion
+
+# svn 帮助网址 https://blog.csdn.net/easyroom/article/details/5814672
+# svn 检出: svn co svn://路径(目录或文件的全路径)　[本地目录全路径]  --username 用户名 --password 密码
+# --non-interactive : 不要交互提示
+RUN svn co --non-interactive --username xxx -- password xxx svn://xxx
+
+
+# 修改 下载仓库为淘宝镜像 npm config set registry http://registry.npm.taobao.org/
+RUN npm config set registry http://registry.npm.taobao.org/
