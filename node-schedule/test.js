@@ -44,3 +44,10 @@ const scheduleCancel = () => {
     }, 5000);
 }
 scheduleCancel();
+
+let startTime = new Date(Date.now() + 5000);
+let endTime = new Date(startTime.getTime() + 5000);
+
+let j = schedule.scheduleJob({start: startTime, end: endTime, rule: '*/1 * * * * *'}, () => {
+    console.log('Time for tea!');
+});
