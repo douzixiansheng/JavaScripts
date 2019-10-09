@@ -12,8 +12,14 @@
  * 
  * 
  * --- 参考exportsTest 目录下测试文件
+ * 
+ * exports.[function name] = [function name]
+ * module.exports = [function name]
  * exports 只能对外暴露单个函数
  * module.exports 可以暴露一个类
+ * 
+ * exports 的方法可以直接调用
+ * module.exports 需要new对象之后才可以调用
  * */
 
 var change = function (a) {
