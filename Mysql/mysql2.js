@@ -7,7 +7,11 @@ async function main() {
         host: 'localhost',
         user: 'root',
         password: '',
-        database: 'test'
+        database: 'test',
+        charset: 'utf8mb4',
+
+        waitForConnections:false
+
     });
 
     const promisePool = pool.promise();
@@ -16,8 +20,8 @@ async function main() {
         console.log(err);
     })
 
-    const [rows, fields] = await promisePool.query("select 1");
+    //const [rows, fields] = await promisePool.query("select 1");
 
-    console.log(rows, fields);
+    //console.log(rows, fields);
 }
 main();
