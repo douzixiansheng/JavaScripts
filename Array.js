@@ -1,11 +1,15 @@
+console.log('> 展开运算符 ...');
 console.log(...[1, 2, 3]);
 
 //ES5
+console.log('> ES5 获取最大元素==========>');
 console.log(Math.max.apply(null, [14, 3, 77]));
 //ES6
+console.log('> ES6 获取最大元素 ============>');
 console.log(Math.max(...[14, 3, 77]));
 
 //ES5
+
 var arr1 = [0, 1, 2];
 var arr2 = [3, 4, 5];
 
@@ -27,6 +31,7 @@ const [first, ...rest] = [1, 2, 3, 4, 5];
 console.log(first, rest);
 
 //扩展运算符可以将字符串转换为真正的数组
+console.log('> 扩展运算符可以将字符串转换为真正的数组')
 console.log([...'hello']);
 
 /**
@@ -150,3 +155,26 @@ m_list.some((value, index) => {
 console.log(`JS map(Number) ========> `);
 let m_list_string = ['1', '2', '3', '4'];
 console.log(m_list_string, m_list_string.map(Number));
+
+console.log(`JS every() 语法 ------------------>`);
+console.log('every()方法，遍历数组每一项，若全部为true，则返回true');
+let m_arr1 = [1, 1, 1, 1, 1];
+let m_arr2 = [1, 2, 3, 4, 5];
+let res3 = m_arr1.every(item => {
+    return item == 1;
+});
+let res4 = m_arr2.every(item => {
+    return item == 1;
+})
+console.log(res3, res4);
+
+console.log(m_arr2.filter(element => {
+    return element == 1;
+}));
+console.log('> some 和 filter的区别 ==>');
+console.log('some 方法返回的是boolean值,可用于检查数组中是否有某对象');
+console.log('filter 方法返回的是一个新数组,可用于过滤数组中的对象');
+
+console.log("----------------------->");
+console.log("----------------------->");
+console.log('扩展运算符、copyWithin、find、findIndex、fill、entries、includes、indexOf、map、some、every')

@@ -42,3 +42,9 @@ console.log(moment().subtract(1, 'days').calendar());
 
 console.log('> 时间戳(毫秒) 转时间')
 console.log(moment.unix(1576118298).format());
+
+console.log('> 时间差转化为相对的秒、分钟或者小时');
+let consumingSeconds = moment.duration(moment(startTime2).valueOf() - moment(startTime1).valueOf()).as('seconds');
+let consumingMinutes = moment.duration(moment(startTime2).valueOf() - moment(startTime1).valueOf()).as('minutes');
+let consumingHours = moment.duration(moment(startTime2).valueOf() - moment(startTime1).valueOf()).as('hours');
+console.log(consumingSeconds, consumingMinutes, consumingHours);
