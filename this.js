@@ -145,7 +145,7 @@ info3();
  * 箭头函数没有自己的this，继承外层上下文绑定的this
  * @type {{age: number, info: obj.info}}
  */
-let obj = {
+let objj = {
     age : 20,
     info: function () {
         return () => {
@@ -154,9 +154,9 @@ let obj = {
     }
 }
 let person1 = {age : 28};
-let infoq = obj.info();
+let infoq = objj.info();
 infoq();
-let info2q = obj.info.call(person1);
+let info2q = objj.info.call(person1);
 info2q();
 
 /**
@@ -194,20 +194,20 @@ obj2.c();
  * 箭头函数的this指向定义时所在外层第一个普通函数,跟使用位置没有关系
  * 被继承的普通函数的this指向改变，箭头函数的this指向会跟着改变
  */
-let a, barObj = {msg:'bar 的this指向'},fooObj = {msg:'foo 的this指向'};
-bar.call(barObj);
-foo.call(fooObj);
-function foo() {
-    a();
-    console.log("foo 的this  ",this);
-}
-function bar() {
-    a = () => {
-        "use strict";
-        console.log(this, "this 指向定义的时候外层第一个普通函数");
-    };
-    console.log('bar this ==> ', this);
-}
+// let a, barObj = {msg:'bar 的this指向'},fooObj = {msg:'foo 的this指向'};
+// bar.call(barObj);
+// foo.call(fooObj);
+// function foo() {
+//     a();
+//     console.log("foo 的this  ",this);
+// }
+// function bar() {
+//     a = () => {
+//         "use strict";
+//         console.log(this, "this 指向定义的时候外层第一个普通函数");
+//     };
+//     console.log('bar this ==> ', this);
+// }
 
 // Node.js环境下 箭头函数没有this，它的this是继承来的，默认指向定义它时候的对象，
 let aa = () => {
@@ -225,10 +225,11 @@ function foo() {
 var obj3 = {
     a:1,
     print(){
+        console.log('定时器中的 this ==>');
+        console.log(this);
         console.log(this.a);
-        "use strict";
         setTimeout(function () {
-            console.log(this.a);
+            console.log("定时器中的 this ==>  ",this);
             console.log("定时器中的 this ==> ",this);
         },1000)
     }

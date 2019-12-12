@@ -103,6 +103,7 @@ for(let [index, elem] of ['a', 'b'].entries()){
 /**
  * includes  返回一个布尔值，表示某个数组是否包含给定的值
  */
+console.log(`JS includes() ============>`)
 console.log([1, 2, 3].includes(2));
 console.log([1, 2, 3].includes(5));
 
@@ -131,3 +132,21 @@ console.log([...['a', , 'c']]);
 for(let i of [ , , ]){
     console.log(i);
 }
+
+console.log(`JS map() 语法 =========>`);
+console.log('> map 有返回值，返回一个新的数组，每个元素为调用func的结果')
+let m_list = [1, 4, 9, 16];
+const m_list2 = m_list.map(x => x * 2);
+console.log('> m_list ', m_list, ' m_list2 ', m_list2);
+
+console.log(`JS some() 语法 =========>`);
+console.log('> some 当内部return true时跳出整个循环');
+m_list.some((value, index) => {
+    if(value == 4){
+        return true;
+    }
+    console.log('> index ',index ,' value ', value);
+});
+console.log(`JS map(Number) ========> `);
+let m_list_string = ['1', '2', '3', '4'];
+console.log(m_list_string, m_list_string.map(Number));
