@@ -175,6 +175,10 @@ console.log('> some 和 filter的区别 ==>');
 console.log('some 方法返回的是boolean值,可用于检查数组中是否有某对象');
 console.log('filter 方法返回的是一个新数组,可用于过滤数组中的对象');
 
+console.log('> some 和 every 的区别');
+console.log('some 一直在找符合条件的值，一旦找到，则不会继续迭代下去');
+console.log('every 从迭代开始，一旦有一个不符合条件，则不会继续迭代下去');
+
 console.log("----------------------->");
 console.log("----------------------->");
 console.log('扩展运算符、copyWithin、find、findIndex、fill、entries、includes、indexOf、map、some、every')

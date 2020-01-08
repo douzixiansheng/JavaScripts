@@ -41,7 +41,7 @@ console.log(person1.__proto__ === Person.prototype);
 //每个原型都有一个constructor属性指向关联的构造函数
 console.log(Person === Person.prototype.constructor);
 //Object.getPrototypeOf 可以获取对象的原型
-console.log(Object.getPrototypeOf(person1));
+console.log("Object.getPrototypeOf(person1) ==> ",Object.getPrototypeOf(person1));
 
 /**
  * 构造函数都有一个prototype属性，指向使用这个构造函数创建的对象实例的原型对象。

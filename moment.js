@@ -48,3 +48,5 @@ let consumingSeconds = moment.duration(moment(startTime2).valueOf() - moment(sta
 let consumingMinutes = moment.duration(moment(startTime2).valueOf() - moment(startTime1).valueOf()).as('minutes');
 let consumingHours = moment.duration(moment(startTime2).valueOf() - moment(startTime1).valueOf()).as('hours');
 console.log(consumingSeconds, consumingMinutes, consumingHours);
+
+console.log('moment() ',moment());
