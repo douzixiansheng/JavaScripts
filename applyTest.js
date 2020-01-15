@@ -19,7 +19,7 @@ var foo = {
 }
 
 function bar(){
-    console.log(this.value);
+    console.log(this.value);// 1
 }
 
 bar.call(foo);

@@ -35,7 +35,7 @@ console.log('> 扩展运算符可以将字符串转换为真正的数组')
 console.log([...'hello']);
 
 /**
- * 扩展运算符内部调用的是数据结构Interator接口，因此只要有Iterator接口的对象
+ * 扩展运算符内部调用的是数据结构Iterator接口，因此只要有Iterator接口的对象
  * 都可以使用扩展运算符
  */
 
@@ -67,8 +67,11 @@ console.log(Array.of(3, 4, 5));
  * copyWithin(target, start, end)
  * 会在当前数组内部将指定位置的成员复制到其他位置，然后返回当前数组
  * 这个方法会修改当前数组
+ * target	必需。复制到指定目标索引位置。
+ * start	可选。元素复制的起始位置。
+ * end	    可选。停止复制的索引位置 (默认为 array.length)。如果为负值，表示倒数。
  */
-var copyArr = [1, 2, 3, 4, 5];
+var copyArr = [1, 2, 3, 4, 5, 6, 7];
 copyArr.copyWithin(0, 3);
 console.log('copyArr ',copyArr);
 
@@ -109,15 +112,17 @@ for(let [index, elem] of ['a', 'b'].entries()){
  * includes  返回一个布尔值，表示某个数组是否包含给定的值
  */
 console.log(`JS includes() ============>`)
-console.log([1, 2, 3].includes(2));
-console.log([1, 2, 3].includes(5));
+console.log([1, 2, 3].includes(2));//true
+console.log([1, 2, 3].includes(5));//false
+console.log(["1", 2, "a"].includes(1));//false
+console.log('abc'.includes('ab'));//true
 
 /**
  * indexOf 内部使用严格判断(===)，会导致对NaN的误判
- * 
+ *
  */
-console.log('[NaN].indexOf(NaN) ',[NaN].indexOf(NaN));
-console.log([NaN].includes(NaN));
+console.log('[NaN].indexOf(NaN) ',[NaN].indexOf(NaN));// -1
+console.log([NaN].includes(NaN));// true
 
 //0 号位置有值 返回true
 console.log(0 in [undefined, undefined, undefined]);
@@ -132,7 +137,7 @@ console.log(0 in [ , , ]);
  * for ... of  循环也会遍历空位
  * entries()、keys()、values()、find()、findIndex() 会将空位处理为undefined
  *  */
-console.log([...['a', , 'c']]);
+console.log([...['a', , 'c']]); // [ 'a', undefined, 'c' ]
 
 for(let i of [ , , ]){
     console.log(i);
@@ -181,4 +186,4 @@ console.log('every 从迭代开始，一旦有一个不符合条件，则不会�
 
 console.log("----------------------->");
 console.log("----------------------->");
-console.log('扩展运算符、copyWithin、find、findIndex、fill、entries、includes、indexOf、map、some、every')
+console.log('扩展运算符、copyWithin、find、findIndex、fill、entries、includes、indexOf、map、some、every、filter');
